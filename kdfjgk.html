@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Miku, Teto y Neru Canvas</title>
+    <style>
+        body {
+            background-color: #202028;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+        canvas {
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5);
+        }
+        .label {
+            position: absolute;
+            bottom: 20px;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="vocaloidCanvas" width="600" height="400"></canvas>
+<div class="label">Miku | Teto | Neru</div>
+
+<script>
+    const canvas = document.getElementById('vocaloidCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // --- CONFIGURACIÓN DE LOS PERSONAJES ---
+    const personajes = [
+        {
+            nombre: 'miku',
+            x: 100, // Posición a la izquierda
+            colorPelo: '#39C5BB', // Turquesa Miku
+            colorOjos: '#39C5BB',
+            colorTraje: '#888',
+            accesorio: 'coletas'
+        },
+        {
+            nombre: 'teto',
+            x: 300, // Posición al centro
+            colorPelo: '#FF3366', // Rojo Rosado Teto
+            colorOjos: '#AA2255',
+            colorTraje: '#333344',
+            accesorio: 'taladros'
+        },
+        {
+            nombre: 'neru',
+            x: 500, // Posición a la derecha
+            colorPelo: '#F2E205', // Amarillo Neru
+            colorOjos: '#DAA520',
+            colorTraje: '#444',
+            accesorio: 'coleta-lado'
+        }
+    ];
+
+    const yBase = 250; // Altura donde están paradas
+
+    // --- FUNCIÓN MAESTRA PARA DIBUJAR UN CHIBI ---
+    function dibujarChibi(p) {
+        const x = p.x;
+        const y = yBase;
+
+        // 1. DIBUJAR PELO TRASERO (Lo que va detrás de la cabeza)
+        ctx.fillStyle = p.colorPelo;
+        
+        if (p.accesorio === 'coletas') { // Miku
+            // Coleta izquierda
+            ctx.beginPath();
+            ctx.moveTo(x - 40, y - 40);
+            ctx.quadraticCurveTo(x - 90, y + 50, x - 50, y + 100); // Curva larga
+            ctx.lineTo(x - 30, y - 20);
+            ctx.fill();
+            // Coleta derecha
+            ctx.beginPath();
+            ctx.moveTo(x + 40, y - 40);
+            ctx.quadraticCurveTo(x + 90, y + 50, x + 50, y + 100);
+            ctx.lineTo(x + 30, y - 20);
+            ctx.fill();
+
+        } else if (p.accesorio === 'taladros') { // Teto
+            // Reutilizamos la lógica de elipses del ejemplo anterior
+            for(let i=0; i<5; i++) {
+                ctx.beginPath();
+                ctx.ellipse(x - 55, y - 20 + (i*15), 20, 15, 0.2, 0, Math.PI*2);
+                ctx.fill();
+                ctx.beginPath();
+                ctx.ellipse(x + 55, y - 20 + (i*15), 20, 15, -0.2, 0, Math.PI*2);
+                ctx.fill();
+            }
+
+        } else if (p.accesorio === 'coleta-lado') { // Neru
+            // Neru tiene una coleta lateral izquierda
+            ctx.beginPath();
+            ctx.moveTo(x - 40, y - 50);
+            ctx.quadraticCurveTo(x - 100, y, x - 80, y + 80); // Curva hacia afuera
+            ctx.lineTo(x - 40, y - 20);
+            ctx.fill();
+        }
+
+        // 2. CUERPO (Uniforme)
+        ctx.fillStyle = p.colorTraje;
+        ctx.beginPath();
+        ctx.moveTo(x - 25, y + 20);
+        ctx.lineTo(x + 25, y + 20);
+        ctx.lineTo(x + 35, y + 80); // Falda ancha
+        ctx.lineTo(x - 35, y + 80);
+        ctx.fill();
+
+        // Corbata/Lazo (Genérico)
+        ctx.fillStyle = (p.nombre === 'miku') ? p.colorPelo : '#CC0033'; // Miku usa corbata turquesa, las otras roja
+        ctx.beginPath();
+        ctx.moveTo(x - 10, y + 20);
+        ctx.lineTo(x + 10, y + 20);
+        ctx.lineTo(x, y + 40);
+        ctx.fill();
+
+        // 3. CABEZA
+        ctx.fillStyle = '#FFF0E0'; // Piel
+        ctx.beginPath();
+        ctx.arc(x, y - 20, 45, 0, Math.PI * 2);
+        ctx.fill();
+
+        // 4. CARA
+        ctx.fillStyle = p.colorOjos;
+        // Ojos
+        ctx.beginPath(); ctx.ellipse(x - 15, y - 15, 6, 10, 0, 0, Math.PI*2); ctx.fill();
+        ctx.beginPath(); ctx.ellipse(x + 15, y - 15, 6, 10, 0, 0, Math.PI*2); ctx.fill();
+        
+        // Boca (Distinta expresión para Neru)
+        ctx.strokeStyle = '#AA5555';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        if (p.nombre === 'neru') {
+            ctx.moveTo(x - 5, y + 5);
+            ctx.lineTo(x + 5, y + 5); // Neru suele estar seria/aburrida (boca recta)
+        } else {
+            ctx.arc(x, y + 5, 5, 0, Math.PI); // Sonrisa para Miku y Teto
+        }
+        ctx.stroke();
+
+        // Si es Neru, le dibujamos su celular amarillo
+        if (p.nombre === 'neru') {
+             ctx.fillStyle = '#FFD700';
+             ctx.fillRect(x + 20, y + 30, 15, 25); // Celular en la mano
+             ctx.strokeStyle = '#000';
+             ctx.strokeRect(x + 20, y + 30, 15, 25);
+        }
+
+        // 5. FLEQUILLO (Parte delantera del pelo)
+        ctx.fillStyle = p.colorPelo;
+        ctx.beginPath();
+        
+        if (p.nombre === 'neru') {
+            // Neru tiene el flequillo hacia un lado
+             ctx.moveTo(x - 40, y - 40);
+             ctx.quadraticCurveTo(x, y - 10, x + 40, y - 40);
+             ctx.lineTo(x + 40, y - 60);
+             ctx.lineTo(x - 40, y - 60);
+        } else {
+            // Flequillo estándar (recto con curva) para Miku y Teto
+            ctx.moveTo(x - 45, y - 30);
+            ctx.quadraticCurveTo(x, y - 10, x + 45, y - 30); // Curva frente
+            ctx.lineTo(x + 40, y - 60); // Arriba
+            ctx.lineTo(x - 40, y - 60);
+        }
+        ctx.fill();
+        
+        // Accesorio de pelo de Miku (cuadrados negros y rojos)
+        if(p.nombre === 'miku') {
+             ctx.fillStyle = '#000';
+             ctx.fillRect(x-48, y-45, 10, 10);
+             ctx.fillRect(x+38, y-45, 10, 10);
+             ctx.fillStyle = '#F00';
+             ctx.fillRect(x-46, y-43, 4, 4); // Detalle rojo
+             ctx.fillRect(x+40, y-43, 4, 4);
+        }
+    }
+
+    // --- BUCLE PRINCIPAL ---
+    // Recorremos la lista y dibujamos a cada una
+    personajes.forEach(personaje => {
+        dibujarChibi(personaje);
+    });
+
+</script>
+
+</body>
+</html>

@@ -1,6 +1,6 @@
 :root {
     /* Paleta de colores Minimalista */
-    --bg-color: #abf1c0;        /* Fondo gris muy claro */
+    --bg-color: #c4f1d2;        /* Fondo gris muy claro */
     --card-bg: #ffffff;         /* Fondo blanco para tarjetas */
     --text-primary: #2d3436;    /* Gris muy oscuro para lectura fácil */
     --text-secondary: #636e72;  /* Gris medio para detalles */
@@ -25,6 +25,38 @@ body {
     line-height: 1.6;
     font-size: 16px;
 }
+
+.lang-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 1000;
+        }
+
+        .btn-lang {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .btn-lang:hover {
+            background-color: #333;
+            color: #fff;
+            border-color: #333;
+        }
+
+        /* Ajuste para que el header no tape los botones si es necesario */
+        .main-container {
+            position: relative;
+            /* Necesario para posicionar los botones */
+        }
 
 /* Contenedor Central */
 .main-container {
@@ -56,8 +88,8 @@ body {
 }
 
 .header-photo img {
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--card-bg);
@@ -282,4 +314,8 @@ footer {
         flex-direction: column;
         text-align: center;
     }
+}
+
+.introText {
+    margin-bottom: 30px;
 }

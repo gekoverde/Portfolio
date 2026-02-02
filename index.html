@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,38 +8,58 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="sources/css/index.css">
+
 </head>
+
 <body>
 
     <div class="main-container">
 
+        <div class="lang-buttons">
+            <button class="btn-lang" onclick="changeLanguage('es')">ES</button>
+            <button class="btn-lang" onclick="changeLanguage('ca')">CAT</button>
+            <button class="btn-lang" onclick="changeLanguage('en')">EN</button>
+        </div>
+
         <header class="header-section">
             <div class="header-text">
                 <h1>Noè Santalucía Broceño</h1>
-                <p class="job-title">Estudiante CFGS DAM/Graduado de Bach.Científico</p>
+                <p class="job-title" data-i18n="jobTitle">Estudiante CFGS DAM/Graduado de Bach.Científico</p>
             </div>
             <div class="header-photo">
-                <img src="sources/imagenes/yo.png" alt="Foto de perfil de Tu Nombre">
+                <img src="sources/imagenes/yo.png" alt="Foto de perfil">
             </div>
         </header>
 
         <section class="contact-bar">
             <span>📧 noe.sabro@gmail.com</span>
             <span>📞 +34 637023020</span>
-            <span>📍 Barcelona, Spain</span>
-            <a href="https://www.linkedin.com/in/no%C3%A9-santaluc%C3%ADa-1a2812333/">🔗 Perfil de Linkedin </span>
+            <span data-i18n="location">📍 Barcelona, España</span>
+            <a href="https://www.linkedin.com/in/no%C3%A9-santaluc%C3%ADa-1a2812333/" data-i18n="linkedin">🔗 Perfil de
+                Linkedin</a>
         </section>
 
         <div class="content-grid">
-            
+
             <main>
-                
+
                 <section class="intro-section card">
                     <div class="intro-content">
                         <h2>Presentación</h2>
-                        <p>
-                            Soy un profesional apasionado por [Tu motivación principal]. Me motiva crear soluciones que [Tu impacto]. 
-                            Mi enfoque se basa en la mejora continua y la eficiencia.
+                        <p class="introText">
+                            Futuro desarrollador de software fan de la tecnología y su aplicación en cualquier ámbito
+                            científico. Combino mi formación actual en DAM (Kotlin/JS) con una
+                            mente analítica y con pensamiento lógico.
+
+                            
+                        </p>
+                        <p class="introText">
+                            Mi valor diferencial es la capacidad de unir el rigor técnico con la curiosidad científica:
+                            ofrezco seriedad profesional, comunicación asertiva (con experiencia tratando con
+                            angloparlantes) y rapidez aprendiendo nuevos entornos. Busco mi primera oportunidad en un
+                            equipo innovador donde pueda crecer profesionalmente, aportando compromiso y soluciones
+                            eficientes desde el primer día.
+
                         </p>
                     </div>
                     <div class="personality-avatar">
@@ -47,51 +68,26 @@
                     </div>
                 </section>
 
-                <section class="experience-section">
-                    <h2>Experiencia Profesional</h2>
-
-                    <article class="card job-card">
-                        <div class="card-header">
-                            <h3>Nombre del Cargo</h3>
-                            <span class="date">Ene 2022 - Actualidad</span>
-                        </div>
-                        <h4 class="company">Nombre de la Empresa</h4>
-                        <p class="xyz-formula">
-                            Logré <strong>[aumentar la retención de clientes un 20%]</strong> 
-                            medido por <strong>[la tasa de renovación anual]</strong> 
-                            haciendo <strong>[una reestructuración del sistema de soporte post-venta]</strong>.
-                        </p>
-                    </article>
-
-                    <article class="card job-card">
-                        <div class="card-header">
-                            <h3>Cargo Anterior</h3>
-                            <span class="date">Mar 2019 - Dic 2021</span>
-                        </div>
-                        <h4 class="company">Empresa Anterior</h4>
-                        <p class="xyz-formula">
-                            Logré <strong>[reducir los tiempos de carga en un 15%]</strong> 
-                            medido por <strong>[Core Web Vitals]</strong> 
-                            haciendo <strong>[una refactorización completa del código legacy]</strong>.
-                        </p>
-                    </article>
-
-                </section>
-
                 <section class="education-section">
-                    <h2>Formación Académica</h2>
-                    
+                    <h2 data-i18n="educationTitle">Formación Académica</h2>
+
                     <div class="grid-2-col">
                         <article class="card edu-card">
-                            <h3>Máster en Especialidad</h3>
-                            <p class="institution">Universidad / Escuela</p>
-                            <span class="date">2018 - 2019</span>
+                            <h3 data-i18n="damTitle">Ciclo Grado Superior DAM</h3>
+                            <p class="institution">ITB</p>
+                            <span class="date" data-i18n="currentDate">Cursando actualmente</span>
                         </article>
 
                         <article class="card edu-card">
-                            <h3>Grado en Tu Carrera</h3>
-                            <p class="institution">Universidad de Ejemplo</p>
-                            <span class="date">2014 - 2018</span>
+                            <h3 data-i18n="bachTitle">Bachillerato Científico</h3>
+                            <p class="institution">Escola Túrbula</p>
+                            <span class="date">2023-2025</span>
+                        </article>
+
+                        <article class="card edu-card">
+                            <h3>ESO</h3>
+                            <p class="institution">Escola Túrbula</p>
+                            <span class="date">2019-2023</span>
                         </article>
                     </div>
                 </section>
@@ -99,17 +95,20 @@
             </main>
 
             <aside>
-                
+
                 <section class="languages-section">
-                    <h2>Idiomas</h2>
-                    
+                    <h2 data-i18n="langTitle">Idiomas</h2>
+
                     <div class="card lang-card">
                         <div class="flag">
                             <img src="https://placehold.co/30x20/orange/white?text=EN" alt="Bandera UK">
                         </div>
                         <div class="lang-info">
-                            <h3>Inglés</h3>
-                            <a href="sources/imagenes/LG0000003434 (Cambridge english certificate).pdf">C1 Advanced (Cambridge)</p>
+                            <h3 data-i18n="english">Inglés</h3>
+                            <p>
+                                <a href="sources/imagenes/LG0000003434 (Cambridge english certificate).pdf"
+                                    data-i18n="englishLevel">B2 (Cambridge) yendo por el C1</a>
+                            </p>
                         </div>
                     </div>
 
@@ -118,27 +117,39 @@
                             <img src="https://placehold.co/30x20/red/yellow?text=ES" alt="Bandera España">
                         </div>
                         <div class="lang-info">
-                            <h3>Español</h3>
-                            <p>Nativo</p>
+                            <h3 data-i18n="spanish">Español</h3>
+                            <p data-i18n="native">Nativo</p>
+                        </div>
+                    </div>
+
+                    <div class="card lang-card">
+                        <div class="flag">
+                            <img src="https://placehold.co/30x20/yellow/red?text=CAT" alt="Bandera Cataluña">
+                        </div>
+                        <div class="lang-info">
+                            <h3 data-i18n="catalan">Catalán</h3>
+                            <p data-i18n="native">Nativo</p>
                         </div>
                     </div>
                 </section>
 
                 <section class="skills-section">
-                    <h2>Habilidades (Soft Skills)</h2>
+                    <h2 data-i18n="skillsTitle">Habilidades (Soft Skills)</h2>
                     <ul class="skills-list">
-                        <li>Comunicación Asertiva</li>
-                        <li>Liderazgo de Equipos</li>
-                        <li>Pensamiento Crítico</li>
-                        <li>Adaptabilidad</li>
-                        <li>Gestión del Tiempo</li>
+                        <li data-i18n="skill1">Comunicación Asertiva</li>
+                        <li data-i18n="skill2">Pensamiento Crítico</li>
+                        <li data-i18n="skill3">Adaptabilidad</li>
+                        <li data-i18n="skill4">Gestión del Tiempo</li>
+                        <li data-i18n="skill5">Lógico</li>
+                        <li data-i18n="skill6">Compromiso</li>
+                        <li data-i18n="skill7">Curiosidad</li>
                     </ul>
                 </section>
 
                 <section class="about-section">
-                    <h2>Sobre mí</h2>
-                    <p>
-                        Disfruto de la fotografía analógica y la lectura de ciencia ficción. Estas aficiones me ayudan a mantener la creatividad fresca.
+                    <h2 data-i18n="aboutTitle">Sobre mí</h2>
+                    <p data-i18n="aboutText">
+                        Disfruto de la fotografia de paisajes tanto diurnos como nocturnos, musica fusión, anime y videojuegos
                     </p>
                 </section>
 
@@ -146,9 +157,115 @@
         </div>
 
         <footer>
-            <p>&copy; 2024 Tu Nombre - Curriculum Vitae</p>
+            <p>&copy; 2026 Noè Santalucía - Curriculum Vitae</p>
         </footer>
 
     </div>
+
+    <script>
+        // Diccionario de traducciones
+        const translations = {
+            es: {
+                jobTitle: "Estudiante CFGS DAM / Graduado de Bach. Científico",
+                location: "📍 Barcelona, España",
+                linkedin: "🔗 Perfil de Linkedin",
+                introTitle: "Presentación",
+                introText: "Futuro desarrollador de software apasionado por la tecnología y su aplicación en el ámbito científico (Biología y Química). Combino mi formación actual en DAM (Kotlin/JS) con una mente analítica, organizada y un fuerte pensamiento lógico. Mi valor diferencial es la capacidad de unir el rigor técnico con la curiosidad científica: ofrezco seriedad profesional, comunicación asertiva y rapidez aprendiendo nuevos entornos.",
+                educationTitle: "Formación Académica",
+                damTitle: "Ciclo Grado Superior DAM",
+                bachTitle: "Bachillerato Científico",
+                currentDate: "Cursando actualmente",
+                langTitle: "Idiomas",
+                english: "Inglés",
+                englishLevel: "B2 (Cambridge) yendo por el C1",
+                spanish: "Español",
+                catalan: "Catalán",
+                native: "Nativo",
+                skillsTitle: "Habilidades (Soft Skills)",
+                skill1: "Comunicación Asertiva",
+                skill2: "Pensamiento Crítico",
+                skill3: "Adaptabilidad",
+                skill4: "Gestión del Tiempo",
+                skill5: "Lógico",
+                skill6: "Compromiso",
+                skill7: "Curiosidad",
+                aboutTitle: "Sobre mí",
+                aboutText: "Disfruto de la fotografía analógica y la lectura de ciencia ficción. Estas aficiones me ayudan a mantener la creatividad fresca."
+            },
+            ca: {
+                jobTitle: "Estudiant CFGS DAM / Graduat de Batx. Científic",
+                location: "📍 Barcelona, Catalunya",
+                linkedin: "🔗 Perfil de Linkedin",
+                introTitle: "Presentació",
+                introText: "Futur desenvolupador de programari apassionat per la tecnologia i la seva aplicació en l'àmbit científic (Biologia i Química). Combino la meva formació actual en DAM (Kotlin/JS) amb una ment analítica, organitzada i un fort pensament lògic. El meu valor diferencial és la capacitat d'unir el rigor tècnic amb la curiositat científica: ofereixo serietat professional, comunicació assertiva i rapidesa aprenent nous entorns.",
+                educationTitle: "Formació Acadèmica",
+                damTitle: "Cicle Grau Superior DAM",
+                bachTitle: "Batxillerat Científic",
+                currentDate: "Cursant actualment",
+                langTitle: "Idiomes",
+                english: "Anglès",
+                englishLevel: "B2 (Cambridge) anant pel C1",
+                spanish: "Espanyol",
+                catalan: "Català",
+                native: "Natiu",
+                skillsTitle: "Habilitats (Soft Skills)",
+                skill1: "Comunicació Assertiva",
+                skill2: "Pensament Crític",
+                skill3: "Adaptabilitat",
+                skill4: "Gestió del Temps",
+                skill5: "Lògic",
+                skill6: "Compromís",
+                skill7: "Curiositat",
+                aboutTitle: "Sobre mi",
+                aboutText: "Gaudeixo de la fotografia analògica i la lectura de ciència-ficció. Aquestes aficions m'ajuden a mantenir la creativitat fresca."
+            },
+            en: {
+                jobTitle: "CFGS DAM Student / Scientific Baccalaureate Graduate",
+                location: "📍 Barcelona, Spain",
+                linkedin: "🔗 Linkedin Profile",
+                introTitle: "Profile",
+                introText: "Future software developer passionate about technology and its application in the scientific field (Biology and Chemistry). I combine my current training in DAM (Kotlin/JS) with an analytical, organized mind and strong logical thinking. My differential value is the ability to unite technical rigor with scientific curiosity: I offer professional seriousness, assertive communication, and speed in learning new environments.",
+                educationTitle: "Education",
+                damTitle: "Higher Technician in App Development (DAM)",
+                bachTitle: "Scientific Baccalaureate",
+                currentDate: "Currently studying",
+                langTitle: "Languages",
+                english: "English",
+                englishLevel: "B2 (Cambridge) aiming for C1",
+                spanish: "Spanish",
+                catalan: "Catalan",
+                native: "Native",
+                skillsTitle: "Soft Skills",
+                skill1: "Assertive Communication",
+                skill2: "Critical Thinking",
+                skill3: "Adaptability",
+                skill4: "Time Management",
+                skill5: "Logical Thinking",
+                skill6: "Commitment",
+                skill7: "Curiosity",
+                aboutTitle: "About Me",
+                aboutText: "I enjoy analog photography and reading science fiction. These hobbies help me keep my creativity fresh."
+            }
+        };
+
+        function changeLanguage(lang) {
+            // Seleccionamos todos los elementos que tengan el atributo data-i18n
+            const elements = document.querySelectorAll('[data-i18n]');
+
+            elements.forEach(element => {
+                // Obtenemos la clave de traducción (ej: "jobTitle")
+                const key = element.getAttribute('data-i18n');
+
+                // Verificamos si existe traducción para esa clave en el idioma seleccionado
+                if (translations[lang] && translations[lang][key]) {
+                    element.innerText = translations[lang][key];
+                }
+            });
+
+            // Opcional: Cambiar el idioma declarado en el HTML
+            document.documentElement.lang = lang;
+        }
+    </script>
 </body>
+
 </html>

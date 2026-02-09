@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="sources/css/index.css">
+    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 
 </head>
 
@@ -15,11 +16,7 @@
 
     <div class="main-container">
 
-        <div class="lang-buttons">
-            <button class="btn-lang" onclick="changeLanguage('es')">ES</button>
-            <button class="btn-lang" onclick="changeLanguage('ca')">CAT</button>
-            <button class="btn-lang" onclick="changeLanguage('en')">EN</button>
-        </div>
+
 
         <header class="header-section">
             <div class="header-text">
@@ -37,6 +34,12 @@
             <span data-i18n="location">📍 Barcelona, España</span>
             <a href="https://www.linkedin.com/in/no%C3%A9-santaluc%C3%ADa-1a2812333/" data-i18n="linkedin">🔗 Perfil de
                 Linkedin</a>
+
+            <div class="lang-buttons">
+                <button class="btn-lang" onclick="changeLanguage('es')">ES</button>
+                <button class="btn-lang" onclick="changeLanguage('ca')">CAT</button>
+                <button class="btn-lang" onclick="changeLanguage('en')">EN</button>
+            </div>
         </section>
 
         <div class="content-grid">
@@ -45,25 +48,65 @@
 
                 <section class="intro-section card">
                     <div class="intro-content">
-                        <h2>Presentación</h2>
-                        <p class="introText">
+                        <h2 data-i18n="introTitle">Presentación</h2>
+
+                        <p class="introText" data-i18n="introText1">
                             Futuro desarrollador de software fan de la tecnología y su aplicación en cualquier ámbito
                             científico. Combino mi formación actual en DAM (Kotlin/JS) con una
                             mente analítica y con pensamiento lógico.
-
-                            
                         </p>
-                        <p class="introText">
+
+                        <p class="introText" data-i18n="introText2">
                             Mi valor diferencial es la capacidad de unir el rigor técnico con la curiosidad científica:
                             ofrezco seriedad profesional, comunicación asertiva (con experiencia tratando con
                             angloparlantes) y rapidez aprendiendo nuevos entornos. Busco mi primera oportunidad en un
                             equipo innovador donde pueda crecer profesionalmente, aportando compromiso y soluciones
                             eficientes desde el primer día.
-
                         </p>
+
+                        <div class="tech-stack-container">
+                            <h3 data-i18n="techTitle">Tecnologías</h3>
+
+                            <div class="tech-group">
+                                <span class="tech-label" data-i18n="techLanguages">Lenguajes:</span>
+                                <div class="badges-wrapper">
+                                    <span class="badge kotlin"><i class="devicon-kotlin-plain"></i> Kotlin</span>
+                                    <span class="badge js"><i class="devicon-javascript-plain"></i> JavaScript</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-group">
+                                <span class="tech-label" data-i18n="techFrontend">Frontend:</span>
+                                <div class="badges-wrapper">
+                                    <span class="badge html"><i class="devicon-html5-plain"></i> HTML</span>
+                                    <span class="badge css"><i class="devicon-css3-plain"></i> CSS</span>
+                                    <span class="badge xml">XML</span>
+                                    <span class="badge json">JSON</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-group">
+                                <span class="tech-label" data-i18n="techDb">BBDD:</span>
+                                <div class="badges-wrapper">
+                                    <span class="badge postgres"><i class="devicon-postgresql-plain"></i>
+                                        PostgreSQL</span>
+                                </div>
+                            </div>
+
+                            <div class="tech-group">
+                                <span class="tech-label" data-i18n="techTools">Herramientas:</span>
+                                <div class="badges-wrapper">
+                                    <span class="badge git"><i class="devicon-git-plain"></i> Git</span>
+                                    <span class="badge github"><i class="devicon-github-original"></i> GitHub</span>
+                                    <span class="badge intellij"><i class="devicon-intellij-plain"></i> IntelliJ</span>
+                                    <span class="badge vscode"><i class="devicon-vscode-plain"></i> VS Code</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="personality-avatar">
-                        <img src="../CurriculumVitaeNoe/sources/imagenes/intj-A.png" alt="Avatar Personalidad">
+                        <div class="avatar" style="background-image: url('../CurriculumVitaeNoe/sources/imagenes/intj-A.png');">
                         <span class="personality-type">INTJ-A</span>
                     </div>
                 </section>
@@ -149,7 +192,8 @@
                 <section class="about-section">
                     <h2 data-i18n="aboutTitle">Sobre mí</h2>
                     <p data-i18n="aboutText">
-                        Disfruto de la fotografia de paisajes tanto diurnos como nocturnos, musica fusión, anime y videojuegos
+                        Disfruto de la fotografia de paisajes tanto diurnos como nocturnos, musica fusión, anime y
+                        videojuegos
                     </p>
                 </section>
 
@@ -163,106 +207,137 @@
     </div>
 
     <script>
-        // Diccionario de traducciones
         const translations = {
-            es: {
-                jobTitle: "Estudiante CFGS DAM / Graduado de Bach. Científico",
-                location: "📍 Barcelona, España",
-                linkedin: "🔗 Perfil de Linkedin",
-                introTitle: "Presentación",
-                introText: "Futuro desarrollador de software apasionado por la tecnología y su aplicación en el ámbito científico (Biología y Química). Combino mi formación actual en DAM (Kotlin/JS) con una mente analítica, organizada y un fuerte pensamiento lógico. Mi valor diferencial es la capacidad de unir el rigor técnico con la curiosidad científica: ofrezco seriedad profesional, comunicación asertiva y rapidez aprendiendo nuevos entornos.",
-                educationTitle: "Formación Académica",
-                damTitle: "Ciclo Grado Superior DAM",
-                bachTitle: "Bachillerato Científico",
-                currentDate: "Cursando actualmente",
-                langTitle: "Idiomas",
-                english: "Inglés",
-                englishLevel: "B2 (Cambridge) yendo por el C1",
-                spanish: "Español",
-                catalan: "Catalán",
-                native: "Nativo",
-                skillsTitle: "Habilidades (Soft Skills)",
-                skill1: "Comunicación Asertiva",
-                skill2: "Pensamiento Crítico",
-                skill3: "Adaptabilidad",
-                skill4: "Gestión del Tiempo",
-                skill5: "Lógico",
-                skill6: "Compromiso",
-                skill7: "Curiosidad",
-                aboutTitle: "Sobre mí",
-                aboutText: "Disfruto de la fotografía analógica y la lectura de ciencia ficción. Estas aficiones me ayudan a mantener la creatividad fresca."
-            },
-            ca: {
-                jobTitle: "Estudiant CFGS DAM / Graduat de Batx. Científic",
-                location: "📍 Barcelona, Catalunya",
-                linkedin: "🔗 Perfil de Linkedin",
-                introTitle: "Presentació",
-                introText: "Futur desenvolupador de programari apassionat per la tecnologia i la seva aplicació en l'àmbit científic (Biologia i Química). Combino la meva formació actual en DAM (Kotlin/JS) amb una ment analítica, organitzada i un fort pensament lògic. El meu valor diferencial és la capacitat d'unir el rigor tècnic amb la curiositat científica: ofereixo serietat professional, comunicació assertiva i rapidesa aprenent nous entorns.",
-                educationTitle: "Formació Acadèmica",
-                damTitle: "Cicle Grau Superior DAM",
-                bachTitle: "Batxillerat Científic",
-                currentDate: "Cursant actualment",
-                langTitle: "Idiomes",
-                english: "Anglès",
-                englishLevel: "B2 (Cambridge) anant pel C1",
-                spanish: "Espanyol",
-                catalan: "Català",
-                native: "Natiu",
-                skillsTitle: "Habilitats (Soft Skills)",
-                skill1: "Comunicació Assertiva",
-                skill2: "Pensament Crític",
-                skill3: "Adaptabilitat",
-                skill4: "Gestió del Temps",
-                skill5: "Lògic",
-                skill6: "Compromís",
-                skill7: "Curiositat",
-                aboutTitle: "Sobre mi",
-                aboutText: "Gaudeixo de la fotografia analògica i la lectura de ciència-ficció. Aquestes aficions m'ajuden a mantenir la creativitat fresca."
-            },
-            en: {
-                jobTitle: "CFGS DAM Student / Scientific Baccalaureate Graduate",
-                location: "📍 Barcelona, Spain",
-                linkedin: "🔗 Linkedin Profile",
-                introTitle: "Profile",
-                introText: "Future software developer passionate about technology and its application in the scientific field (Biology and Chemistry). I combine my current training in DAM (Kotlin/JS) with an analytical, organized mind and strong logical thinking. My differential value is the ability to unite technical rigor with scientific curiosity: I offer professional seriousness, assertive communication, and speed in learning new environments.",
-                educationTitle: "Education",
-                damTitle: "Higher Technician in App Development (DAM)",
-                bachTitle: "Scientific Baccalaureate",
-                currentDate: "Currently studying",
-                langTitle: "Languages",
-                english: "English",
-                englishLevel: "B2 (Cambridge) aiming for C1",
-                spanish: "Spanish",
-                catalan: "Catalan",
-                native: "Native",
-                skillsTitle: "Soft Skills",
-                skill1: "Assertive Communication",
-                skill2: "Critical Thinking",
-                skill3: "Adaptability",
-                skill4: "Time Management",
-                skill5: "Logical Thinking",
-                skill6: "Commitment",
-                skill7: "Curiosity",
-                aboutTitle: "About Me",
-                aboutText: "I enjoy analog photography and reading science fiction. These hobbies help me keep my creativity fresh."
-            }
-        };
+        es: {
+            jobTitle: "Estudiante CFGS DAM / Graduado de Bach. Científico",
+            location: "📍 Barcelona, España",
+            linkedin: "🔗 Perfil de Linkedin",
+            
+            introTitle: "Presentación",
+            introText1: "Futuro desarrollador de software fan de la tecnología y su aplicación en cualquier ámbito científico. Combino mi formación actual en DAM (Kotlin/JS) con una mente analítica y con pensamiento lógico.",
+            introText2: "Mi valor diferencial es la capacidad de unir el rigor técnico con la curiosidad científica: ofrezco seriedad profesional, comunicación asertiva (con experiencia tratando con angloparlantes) y rapidez aprendiendo nuevos entornos. Busco mi primera oportunidad en un equipo innovador donde pueda crecer profesionalmente, aportando compromiso y soluciones eficientes desde el primer día.",
+            
+            // NUEVAS TRADUCCIONES TECNOLOGÍA
+            techTitle: "Tecnologías",
+            techLanguages: "Lenguajes:",
+            techFrontend: "Frontend:",
+            techDb: "BBDD:",
+            techTools: "Herramientas:",
+
+            educationTitle: "Formación Académica",
+            damTitle: "Ciclo Grado Superior DAM",
+            bachTitle: "Bachillerato Científico",
+            currentDate: "Cursando actualmente",
+            langTitle: "Idiomas",
+            english: "Inglés",
+            englishLevel: "B2 (Cambridge) yendo por el C1",
+            spanish: "Español",
+            catalan: "Catalán",
+            native: "Nativo",
+            skillsTitle: "Habilidades (Soft Skills)",
+            skill1: "Comunicación Asertiva",
+            skill2: "Pensamiento Crítico",
+            skill3: "Adaptabilidad",
+            skill4: "Gestión del Tiempo",
+            skill5: "Lógico",
+            skill6: "Compromiso",
+            skill7: "Curiosidad",
+            aboutTitle: "Sobre mí",
+            aboutText: "Disfruto de la fotografía de paisajes tanto diurnos como nocturnos, música fusión, anime y videojuegos."
+        },
+        ca: {
+            jobTitle: "Estudiant CFGS DAM / Graduat de Batx. Científic",
+            location: "📍 Barcelona, Catalunya",
+            linkedin: "🔗 Perfil de Linkedin",
+            
+            introTitle: "Presentació",
+            introText1: "Futur desenvolupador de programari fan de la tecnologia i la seva aplicació en qualsevol àmbit científic. Combino la meva formació actual en DAM (Kotlin/JS) amb una ment analítica i amb pensament lògic.",
+            introText2: "El meu valor diferencial és la capacitat d'unir el rigor tècnic amb la curiositat científica: ofereixo serietat professional, comunicació assertiva (amb experiència tractant amb angloparlants) i rapidesa aprenent nous entorns. Busco la meva primera oportunitat en un equip innovador on pugui créixer professionalment, aportant compromís i solucions eficients des del primer dia.",
+            
+            // NUEVAS TRADUCCIONES TECNOLOGÍA
+            techTitle: "Tecnologies",
+            techLanguages: "Llenguatges:",
+            techFrontend: "Frontend:",
+            techDb: "BBDD:",
+            techTools: "Eines:",
+
+            educationTitle: "Formació Acadèmica",
+            damTitle: "Cicle Grau Superior DAM",
+            bachTitle: "Batxillerat Científic",
+            currentDate: "Cursant actualment",
+            langTitle: "Idiomes",
+            english: "Anglès",
+            englishLevel: "B2 (Cambridge) anant pel C1",
+            spanish: "Espanyol",
+            catalan: "Català",
+            native: "Natiu",
+            skillsTitle: "Habilitats (Soft Skills)",
+            skill1: "Comunicació Assertiva",
+            skill2: "Pensament Crític",
+            skill3: "Adaptabilitat",
+            skill4: "Gestió del Temps",
+            skill5: "Lògic",
+            skill6: "Compromís",
+            skill7: "Curiositat",
+            aboutTitle: "Sobre mi",
+            aboutText: "Gaudeixo de la fotografia de paisatges tant diürns com nocturns, música fusió, anime i videojocs."
+        },
+        en: {
+            jobTitle: "CFGS DAM Student / Scientific Baccalaureate Graduate",
+            location: "📍 Barcelona, Spain",
+            linkedin: "🔗 Linkedin Profile",
+            
+            introTitle: "Profile",
+            introText1: "Future software developer, fan of technology and its application in any scientific field. I combine my current training in DAM (Kotlin/JS) with an analytical mind and logical thinking.",
+            introText2: "My differential value is the ability to unite technical rigor with scientific curiosity: I offer professional seriousness, assertive communication (experienced in dealing with English speakers), and speed in learning new environments. I am looking for my first opportunity in an innovative team where I can grow professionally, contributing commitment and efficient solutions from day one.",
+            
+            // NUEVAS TRADUCCIONES TECNOLOGÍA
+            techTitle: "Technologies",
+            techLanguages: "Languages:",
+            techFrontend: "Frontend:",
+            techDb: "Databases:",
+            techTools: "Tools:",
+
+            educationTitle: "Education",
+            damTitle: "Higher Technician in App Development (DAM)",
+            bachTitle: "Scientific Baccalaureate",
+            currentDate: "Currently studying",
+            langTitle: "Languages",
+            english: "English",
+            englishLevel: "B2 (Cambridge) aiming for C1",
+            spanish: "Spanish",
+            catalan: "Catalan",
+            native: "Native",
+            skillsTitle: "Soft Skills",
+            skill1: "Assertive Communication",
+            skill2: "Critical Thinking",
+            skill3: "Adaptability",
+            skill4: "Time Management",
+            skill5: "Logical Thinking",
+            skill6: "Commitment",
+            skill7: "Curiosity",
+            aboutTitle: "About Me",
+            aboutText: "I enjoy landscape photography (both day and night), fusion music, anime, and video games."
+        }
+    };
 
         function changeLanguage(lang) {
             // Seleccionamos todos los elementos que tengan el atributo data-i18n
             const elements = document.querySelectorAll('[data-i18n]');
 
             elements.forEach(element => {
-                // Obtenemos la clave de traducción (ej: "jobTitle")
+                // Obtenemos la clave de traducción (ej: "introText1")
                 const key = element.getAttribute('data-i18n');
 
                 // Verificamos si existe traducción para esa clave en el idioma seleccionado
                 if (translations[lang] && translations[lang][key]) {
+                    // Usamos innerHTML por si acaso hay negritas o etiquetas dentro, 
+                    // aunque innerText es más seguro si solo es texto plano.
                     element.innerText = translations[lang][key];
                 }
             });
 
-            // Opcional: Cambiar el idioma declarado en el HTML
+            // Cambiar el idioma declarado en el HTML para accesibilidad
             document.documentElement.lang = lang;
         }
     </script>

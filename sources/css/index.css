@@ -4,7 +4,7 @@
     --card-bg: #ffffff;         /* Fondo blanco para tarjetas */
     --text-primary: #2d3436;    /* Gris muy oscuro para lectura fácil */
     --text-secondary: #636e72;  /* Gris medio para detalles */
-    --accent-color: #2c3e50;    /* Color principal (azul oscuro/grisáceo) */
+    --accent-color: #152535;    /* Color principal (azul oscuro/grisáceo) */
     --accent-light: #ecf0f1;    /* Color de fondo suave para detalles */
     
     /* Espaciado y Bordes */
@@ -27,7 +27,6 @@ body {
 }
 
 .lang-buttons {
-            position: absolute;
             top: 20px;
             right: 20px;
             display: flex;
@@ -153,6 +152,7 @@ h2 {
     display: flex;
     align-items: center;
     gap: 20px;
+
 }
 
 .personality-avatar {
@@ -160,14 +160,17 @@ h2 {
     flex-direction: column;
     align-items: center;
     min-width: 100px;
+
 }
 
-.personality-avatar img {
+.personality-avatar {
     width: 80px;
     height: 80px;
-    border-radius: 50%;
+    border-radius: 30%;
     background-color: var(--accent-light);
     padding: 5px;
+    background-image: url('../imagenes/intj-A.png');
+    background-size: cover;
 }
 
 .personality-type {
@@ -319,3 +322,71 @@ footer {
 .introText {
     margin-bottom: 30px;
 }
+
+
+/* Estilos para el contenedor de tecnologías */
+.tech-stack-container {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.tech-stack-container h3 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.tech-group {
+    display: flex;
+    align-items: center; /* Alinea verticalmente label y badges */
+    margin-bottom: 12px;
+    flex-wrap: wrap; /* Para móviles */
+}
+
+.tech-label {
+    font-weight: 600;
+    min-width: 100px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.badges-wrapper {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+/* Estilo base del Badge */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: white; /* Texto blanco por defecto */
+    transition: transform 0.2s ease;
+}
+
+.badge:hover {
+    transform: translateY(-2px);
+}
+
+.badge i {
+    font-size: 1rem;
+}
+
+/* Colores Específicos de cada Tecnología */
+.badge.kotlin { background-color: #7F52FF; }
+.badge.js { background-color: #F7DF1E; color: #333; } /* JS suele ser fondo amarillo letras oscuras */
+.badge.html { background-color: #E34F26; }
+.badge.css { background-color: #1572B6; }
+.badge.xml { background-color: #555; } /* XML genérico gris */
+.badge.json { background-color: #292929; } /* JSON genérico oscuro */
+.badge.postgres { background-color: #336791; }
+.badge.git { background-color: #F05032; }
+.badge.github { background-color: #181717; }
+.badge.intellij { background-color: #000000; border: 1px solid #ddd; } /* IntelliJ logo es complejo, fondo negro va bien */
+.badge.vscode { background-color: #007ACC; }

@@ -2,344 +2,265 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curriculum Noè Santalucía</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="sources/css/index.css">
-    <link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio | Noè Santalucía</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Devicons (opcional, para iconos de tecnologías) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
 </head>
 
 <body>
-
-    <div class="main-container">
-
-
-
-        <header class="header-section">
-            <div class="header-text">
-                <h1>Noè Santalucía Broceño</h1>
-                <p class="job-title" data-i18n="jobTitle">Estudiante CFGS DAM/Graduado de Bach.Científico</p>
+    <div class="vscode-app">
+        <!-- Top Bar -->
+        <header class="title-bar">
+            <div class="window-controls">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
             </div>
-            <div class="header-photo">
-                <img src="sources/imagenes/yo.png" alt="Foto de perfil">
-            </div>
+            <div class="title-text">NoèSantaluciaPortfolio - Visual Studio Code</div>
+            <div class="title-actions">⚙️</div>
         </header>
 
-        <section class="contact-bar">
-            <span>📧 noe.sabro@gmail.com</span>
-            <span>📞 +34 637023020</span>
-            <span data-i18n="location">📍 Barcelona, España</span>
-            <a href="https://www.linkedin.com/in/no%C3%A9-santaluc%C3%ADa-1a2812333/" data-i18n="linkedin">🔗 Perfil de
-                Linkedin</a>
+        <div class="workspace">
+            <!-- Activity Bar -->
+            <aside class="activity-bar" aria-label="Barra de actividad">
+                <button class="activity-btn active" title="Explorer">📁</button>
+                <button class="activity-btn" title="Search">🔎</button>
+                <button class="activity-btn" title="Source Control">🌿</button>
+                <button class="activity-btn" title="Extensions">🧩</button>
+            </aside>
 
-            <div class="lang-buttons">
-                <button class="btn-lang" onclick="changeLanguage('es')">ES</button>
-                <button class="btn-lang" onclick="changeLanguage('ca')">CAT</button>
-                <button class="btn-lang" onclick="changeLanguage('en')">EN</button>
-            </div>
-        </section>
+            <!-- Explorer -->
+            <aside class="explorer-panel" aria-label="Explorer">
+                <div class="panel-header">EXPLORER</div>
+                <div class="panel-section">
+                    <div class="panel-section-title">PORTFOLIO-WEB</div>
+                    <nav class="tree">
+                        <a href="#curriculum" class="tree-item">📄 curriculum.md</a>
+                        <a href="#portfolio" class="tree-item">🧩 proyectos.tsx</a>
+                        <a href="#contacto" class="tree-item">📬 contacto.json</a>
+                    </nav>
+                </div>
 
-        <div class="content-grid">
+                <div class="panel-section quick-help">
+                    <div class="panel-section-title">TIP</div>
+                    <p>Para añadir un proyecto nuevo:</p>
+                    <code>node add-project.js</code>
+                </div>
+            </aside>
 
-            <main>
+            <!-- Editor -->
+            <main class="editor-area">
+                <div class="editor-tabs">
+                    <button class="tab active" data-target="curriculum">curriculum.md</button>
+                    <button class="tab" data-target="portfolio">proyectos.tsx</button>
+                    <button class="tab" data-target="contacto">contacto.json</button>
+                </div>
 
-                <section class="intro-section card">
-                    <div class="intro-content">
-                        <h2 data-i18n="introTitle">Presentación</h2>
+                <div class="editor-content" id="editorContent">
+                    <!-- Sección Curriculum -->
+                    <section id="curriculum" class="file-section">
+                        <div class="file-title">
+                            <span class="file-icon">📄</span>
+                            <h1>curriculum.md</h1>
+                        </div>
 
-                        <p class="introText" data-i18n="introText1">
-                            Futuro desarrollador de software fan de la tecnología y su aplicación en cualquier ámbito
-                            científico. Combino mi formación actual en DAM (Kotlin/JS) con una
-                            mente analítica y con pensamiento lógico.
-                        </p>
+                        <div class="cv-header card-vscode">
+                            <div class="cv-header-left">
+                                <p class="comment-line"># Hola, soy</p>
+                                <h2 class="name">Noè Santalucía Broceño</h2>
+                                <p class="subtitle">Estudiante CFGS DAM / Graduado de Bach. Científico</p>
 
-                        <p class="introText" data-i18n="introText2">
-                            Mi valor diferencial es la capacidad de unir el rigor técnico con la curiosidad científica:
-                            ofrezco seriedad profesional, comunicación asertiva (con experiencia tratando con
-                            angloparlantes) y rapidez aprendiendo nuevos entornos. Busco mi primera oportunidad en un
-                            equipo innovador donde pueda crecer profesionalmente, aportando compromiso desde el primer día.
-                        </p>
-
-                        <div class="tech-stack-container">
-                            <h3 data-i18n="techTitle">Tecnologías</h3>
-
-                            <div class="tech-group">
-                                <span class="tech-label" data-i18n="techLanguages">Lenguajes:</span>
-                                <div class="badges-wrapper">
-                                    <span class="badge kotlin"><i class="devicon-kotlin-plain"></i> Kotlin</span>
-                                    <span class="badge js"><i class="devicon-javascript-plain"></i> JavaScript</span>
+                                <div class="badge-row">
+                                    <span class="chip">📍 Barcelona, España</span>
+                                    <a class="chip link-chip" href="mailto:noe.sabro@gmail.com">📧
+                                        noe.sabro@gmail.com</a>
+                                    <a class="chip link-chip"
+                                        href="https://www.linkedin.com/in/no%C3%A9-santaluc%C3%ADa-1a2812333/"
+                                        target="_blank" rel="noopener noreferrer">🔗 LinkedIn</a>
                                 </div>
                             </div>
 
-                            <div class="tech-group">
-                                <span class="tech-label" data-i18n="techFrontend">Frontend:</span>
-                                <div class="badges-wrapper">
-                                    <span class="badge html"><i class="devicon-html5-plain"></i> HTML</span>
-                                    <span class="badge css"><i class="devicon-css3-plain"></i> CSS</span>
-                                    <span class="badge xml">XML</span>
-                                    <span class="badge json">JSON</span>
-                                </div>
-                            </div>
-
-                            <div class="tech-group">
-                                <span class="tech-label" data-i18n="techDb">BBDD:</span>
-                                <div class="badges-wrapper">
-                                    <span class="badge postgres"><i class="devicon-postgresql-plain"></i>
-                                        PostgreSQL</span>
-                                </div>
-                            </div>
-
-                            <div class="tech-group">
-                                <span class="tech-label" data-i18n="techTools">Herramientas:</span>
-                                <div class="badges-wrapper">
-                                    <span class="badge git"><i class="devicon-git-plain"></i> Git</span>
-                                    <span class="badge github"><i class="devicon-github-original"></i> GitHub</span>
-                                    <span class="badge intellij"><i class="devicon-intellij-plain"></i> IntelliJ</span>
-                                    <span class="badge vscode"><i class="devicon-vscode-plain"></i> VS Code</span>
-                                </div>
+                            <div class="cv-photo-wrap">
+                                <img src="sources/imagenes/yo.png" alt="Foto de perfil de Noè" class="cv-photo"
+                                    onerror="this.style.display='none'; this.parentElement.innerHTML='<div class=&quot;cv-photo-fallback&quot;>NS</div>';">
                             </div>
                         </div>
-                    </div>
 
-                    <div class="personality-avatar">
-                        <div class="avatar" style="background-image: url('../CurriculumVitaeNoe/sources/imagenes/intj-A.png');">
-                        <span class="personality-type">INTJ-A</span>
-                    </div>
-                </section>
+                        <div class="grid-2">
+                            <article class="card-vscode">
+                                <h3 class="section-title">📝 Presentación</h3>
+                                <p>
+                                    Futuro desarrollador de software fan de la tecnología y su aplicación en cualquier
+                                    ámbito científico.
+                                    Combino mi formación actual en DAM (Kotlin/JS) con una mente analítica y pensamiento
+                                    lógico.
+                                </p>
+                                <p>
+                                    Mi valor diferencial es la capacidad de unir el rigor técnico con la curiosidad
+                                    científica:
+                                    ofrezco seriedad profesional, comunicación asertiva y rapidez aprendiendo nuevos
+                                    entornos.
+                                    Busco mi primera oportunidad en un equipo innovador donde crecer profesionalmente.
+                                </p>
+                            </article>
 
-                <section class="education-section">
-                    <h2 data-i18n="educationTitle">Formación Académica</h2>
+                            <article class="card-vscode">
+                                <h3 class="section-title">🛠️ Tecnologías</h3>
 
-                    <div class="grid-2-col">
-                        <article class="card edu-card">
-                            <h3 data-i18n="damTitle">Ciclo Grado Superior DAM</h3>
-                            <p class="institution">ITB</p>
-                            <span class="date" data-i18n="currentDate">Cursando actualmente</span>
-                        </article>
+                                <div class="tech-group">
+                                    <span class="tech-label">Lenguajes</span>
+                                    <div class="chips-wrap">
+                                        <span class="chip tech"><i class="devicon-kotlin-plain"></i> Kotlin</span>
+                                        <span class="chip tech"><i class="devicon-javascript-plain"></i>
+                                            JavaScript</span>
+                                    </div>
+                                </div>
 
-                        <article class="card edu-card">
-                            <h3 data-i18n="bachTitle">Bachillerato Científico</h3>
-                            <p class="institution">Escola Túrbula</p>
-                            <span class="date">2023-2025</span>
-                        </article>
+                                <div class="tech-group">
+                                    <span class="tech-label">Frontend</span>
+                                    <div class="chips-wrap">
+                                        <span class="chip tech"><i class="devicon-html5-plain"></i> HTML</span>
+                                        <span class="chip tech"><i class="devicon-css3-plain"></i> CSS</span>
+                                        <span class="chip tech">XML</span>
+                                        <span class="chip tech">JSON</span>
+                                    </div>
+                                </div>
 
-                        <article class="card edu-card">
-                            <h3>ESO</h3>
-                            <p class="institution">Escola Túrbula</p>
-                            <span class="date">2019-2023</span>
-                        </article>
-                    </div>
-                </section>
+                                <div class="tech-group">
+                                    <span class="tech-label">BBDD</span>
+                                    <div class="chips-wrap">
+                                        <span class="chip tech"><i class="devicon-postgresql-plain"></i>
+                                            PostgreSQL</span>
+                                    </div>
+                                </div>
 
-            </main>
-
-            <aside>
-
-                <section class="languages-section">
-                    <h2 data-i18n="langTitle">Idiomas</h2>
-
-                    <div class="card lang-card">
-                        <div class="flag">
-                            <img src="https://placehold.co/30x20/orange/white?text=EN" alt="Bandera UK">
+                                <div class="tech-group">
+                                    <span class="tech-label">Herramientas</span>
+                                    <div class="chips-wrap">
+                                        <span class="chip tech"><i class="devicon-git-plain"></i> Git</span>
+                                        <span class="chip tech"><i class="devicon-github-original"></i> GitHub</span>
+                                        <span class="chip tech"><i class="devicon-intellij-plain"></i> IntelliJ</span>
+                                        <span class="chip tech"><i class="devicon-vscode-plain"></i> VS Code</span>
+                                    </div>
+                                </div>
+                            </article>
                         </div>
-                        <div class="lang-info">
-                            <h3 data-i18n="english">Inglés</h3>
+
+                        <div class="grid-2">
+                            <article class="card-vscode">
+                                <h3 class="section-title">🎓 Formación</h3>
+                                <div class="list-cards">
+                                    <div class="mini-card">
+                                        <div>
+                                            <h4>CFGS DAM</h4>
+                                            <p>ITB</p>
+                                        </div>
+                                        <span class="muted">Cursando</span>
+                                    </div>
+                                    <div class="mini-card">
+                                        <div>
+                                            <h4>Bachillerato Científico</h4>
+                                            <p>Escola Túrbula</p>
+                                        </div>
+                                        <span class="muted">2023–2025</span>
+                                    </div>
+                                    <div class="mini-card">
+                                        <div>
+                                            <h4>ESO</h4>
+                                            <p>Escola Túrbula</p>
+                                        </div>
+                                        <span class="muted">2019–2023</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article class="card-vscode">
+                                <h3 class="section-title">🌍 Idiomas y soft skills</h3>
+
+                                <div class="info-block">
+                                    <p><strong>Idiomas:</strong> Español (nativo), Catalán (nativo), Inglés (B2
+                                        Cambridge, yendo hacia C1)</p>
+                                </div>
+
+                                <div class="chips-wrap">
+                                    <span class="chip">Comunicación Asertiva</span>
+                                    <span class="chip">Pensamiento Crítico</span>
+                                    <span class="chip">Adaptabilidad</span>
+                                    <span class="chip">Gestión del Tiempo</span>
+                                    <span class="chip">Lógico</span>
+                                    <span class="chip">Compromiso</span>
+                                    <span class="chip">Curiosidad</span>
+                                </div>
+
+                                <div class="info-block mt-12">
+                                    <p><strong>Sobre mí:</strong> Fotografía de paisajes (diurna/nocturna), música
+                                        fusión, anime y videojuegos.</p>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+
+                    <!-- Sección Portfolio -->
+                    <section id="portfolio" class="file-section hidden">
+                        <div class="file-title">
+                            <span class="file-icon">🧩</span>
+                            <h1>proyectos.tsx</h1>
+                        </div>
+
+                        <div class="card-vscode intro-card">
+                            <p class="comment-line">// Aquí se renderizan automáticamente las tarjetas desde
+                                projects-data.js</p>
+                            <h2 class="section-title">Portfolio de proyectos</h2>
                             <p>
-                                <a href="sources/imagenes/LG0000003434 (Cambridge english certificate).pdf"
-                                    data-i18n="englishLevel">B2 (Cambridge) yendo por el C1</a>
+                                Añade nuevos proyectos con <code>node add-project.js</code> y se generarán nuevas
+                                tarjetas automáticamente.
                             </p>
                         </div>
-                    </div>
 
-                    <div class="card lang-card">
-                        <div class="flag">
-                            <img src="https://placehold.co/30x20/red/yellow?text=ES" alt="Bandera España">
+                        <div id="projectsGrid" class="projects-grid" aria-live="polite"></div>
+                    </section>
+
+                    <!-- Sección Contacto -->
+                    <section id="contacto" class="file-section hidden">
+                        <div class="file-title">
+                            <span class="file-icon">📬</span>
+                            <h1>contacto.json</h1>
+                            c
                         </div>
-                        <div class="lang-info">
-                            <h3 data-i18n="spanish">Español</h3>
-                            <p data-i18n="native">Nativo</p>
+
+                        <div class="card-vscode code-like">
+                            <pre>{
+  "nombre": "Noè Santalucía Broceño",
+  "email": "noe.sabro@gmail.com",
+  "telefono": "+34 637023020",
+  "ubicacion": "Barcelona, España",
+  "linkedin": "https://www.linkedin.com/in/no%C3%A9-santaluc%C3%ADa-1a2812333/"
+}</pre>
                         </div>
-                    </div>
-
-                    <div class="card lang-card">
-                        <div class="flag">
-                            <img src="https://placehold.co/30x20/yellow/red?text=CAT" alt="Bandera Cataluña">
-                        </div>
-                        <div class="lang-info">
-                            <h3 data-i18n="catalan">Catalán</h3>
-                            <p data-i18n="native">Nativo</p>
-                        </div>
-                    </div>
-                </section>
-
-                <section class="skills-section">
-                    <h2 data-i18n="skillsTitle">Habilidades (Soft Skills)</h2>
-                    <ul class="skills-list">
-                        <li data-i18n="skill1">Comunicación Asertiva</li>
-                        <li data-i18n="skill2">Pensamiento Crítico</li>
-                        <li data-i18n="skill3">Adaptabilidad</li>
-                        <li data-i18n="skill4">Gestión del Tiempo</li>
-                        <li data-i18n="skill5">Lógico</li>
-                        <li data-i18n="skill6">Compromiso</li>
-                        <li data-i18n="skill7">Curiosidad</li>
-                    </ul>
-                </section>
-
-                <section class="about-section">
-                    <h2 data-i18n="aboutTitle">Sobre mí</h2>
-                    <p data-i18n="aboutText">
-                        Disfruto de la fotografia de paisajes tanto diurnos como nocturnos, musica fusión, anime y
-                        videojuegos
-                    </p>
-                </section>
-
-            </aside>
+                    </section>
+                </div>
+            </main>
         </div>
 
-        <footer>
-            <p>&copy; 2026 Noè Santalucía - Curriculum Vitae</p>
+        <footer class="status-bar">
+            <span>Portfolio Ready ✅</span>
+            <span>JavaScript</span>
+            <span>UTF-8</span>
+            <span>ES</span>
         </footer>
-
     </div>
 
-    <script>
-        const translations = {
-        es: {
-            jobTitle: "Estudiante CFGS DAM / Graduado de Bach. Científico",
-            location: "📍 Barcelona, España",
-            linkedin: "🔗 Perfil de Linkedin",
-            
-            introTitle: "Presentación",
-            introText1: "Futuro desarrollador de software fan de la tecnología y su aplicación en cualquier ámbito científico. Combino mi formación actual en DAM (Kotlin/JS) con una mente analítica y con pensamiento lógico.",
-            introText2: "Mi valor diferencial es la capacidad de unir el rigor técnico con la curiosidad científica: ofrezco seriedad profesional, comunicación asertiva (con experiencia tratando con angloparlantes) y rapidez aprendiendo nuevos entornos. Busco mi primera oportunidad en un equipo innovador donde pueda crecer profesionalmente, aportando compromiso desde el primer día.",
-            
-            // NUEVAS TRADUCCIONES TECNOLOGÍA
-            techTitle: "Tecnologías",
-            techLanguages: "Lenguajes:",
-            techFrontend: "Frontend:",
-            techDb: "BBDD:",
-            techTools: "Herramientas:",
-
-            educationTitle: "Formación Académica",
-            damTitle: "Ciclo Grado Superior DAM",
-            bachTitle: "Bachillerato Científico",
-            currentDate: "Cursando actualmente",
-            langTitle: "Idiomas",
-            english: "Inglés",
-            englishLevel: "B2 (Cambridge) yendo por el C1",
-            spanish: "Español",
-            catalan: "Catalán",
-            native: "Nativo",
-            skillsTitle: "Habilidades (Soft Skills)",
-            skill1: "Comunicación Asertiva",
-            skill2: "Pensamiento Crítico",
-            skill3: "Adaptabilidad",
-            skill4: "Gestión del Tiempo",
-            skill5: "Lógico",
-            skill6: "Compromiso",
-            skill7: "Curiosidad",
-            aboutTitle: "Sobre mí",
-            aboutText: "Disfruto de la fotografía de paisajes tanto diurnos como nocturnos, música fusión, anime y videojuegos."
-        },
-        ca: {
-            jobTitle: "Estudiant CFGS DAM / Graduat de Batx. Científic",
-            location: "📍 Barcelona, Catalunya",
-            linkedin: "🔗 Perfil de Linkedin",
-            
-            introTitle: "Presentació",
-            introText1: "Futur desenvolupador de programari fan de la tecnologia i la seva aplicació en qualsevol àmbit científic. Combino la meva formació actual en DAM (Kotlin/JS) amb una ment analítica i amb pensament lògic.",
-            introText2: "El meu valor diferencial és la capacitat d'unir el rigor tècnic amb la curiositat científica: ofereixo serietat professional, comunicació assertiva (amb experiència tractant amb angloparlants) i rapidesa aprenent nous entorns. Busco la meva primera oportunitat en un equip innovador on pugui créixer professionalment, aportant compromís des del primer dia.",
-            
-            // NUEVAS TRADUCCIONES TECNOLOGÍA
-            techTitle: "Tecnologies",
-            techLanguages: "Llenguatges:",
-            techFrontend: "Frontend:",
-            techDb: "BBDD:",
-            techTools: "Eines:",
-
-            educationTitle: "Formació Acadèmica",
-            damTitle: "Cicle Grau Superior DAM",
-            bachTitle: "Batxillerat Científic",
-            currentDate: "Cursant actualment",
-            langTitle: "Idiomes",
-            english: "Anglès",
-            englishLevel: "B2 (Cambridge) anant pel C1",
-            spanish: "Espanyol",
-            catalan: "Català",
-            native: "Natiu",
-            skillsTitle: "Habilitats (Soft Skills)",
-            skill1: "Comunicació Assertiva",
-            skill2: "Pensament Crític",
-            skill3: "Adaptabilitat",
-            skill4: "Gestió del Temps",
-            skill5: "Lògic",
-            skill6: "Compromís",
-            skill7: "Curiositat",
-            aboutTitle: "Sobre mi",
-            aboutText: "Gaudeixo de la fotografia de paisatges tant diürns com nocturns, música fusió, anime i videojocs."
-        },
-        en: {
-            jobTitle: "CFGS DAM Student / Scientific Baccalaureate Graduate",
-            location: "📍 Barcelona, Spain",
-            linkedin: "🔗 Linkedin Profile",
-            
-            introTitle: "Profile",
-            introText1: "Future software developer, fan of technology and its application in any scientific field. I combine my current training in DAM (Kotlin/JS) with an analytical mind and logical thinking.",
-            introText2: "My differential value is the ability to unite technical rigor with scientific curiosity: I offer professional seriousness, assertive communication (experienced in dealing with English speakers), and speed in learning new environments. I am looking for my first opportunity in an innovative team where I can grow professionally, contributing commitment from day one.",
-            
-            // NUEVAS TRADUCCIONES TECNOLOGÍA
-            techTitle: "Technologies",
-            techLanguages: "Languages:",
-            techFrontend: "Frontend:",
-            techDb: "Databases:",
-            techTools: "Tools:",
-
-            educationTitle: "Education",
-            damTitle: "Higher Technician in App Development (DAM)",
-            bachTitle: "Scientific Baccalaureate",
-            currentDate: "Currently studying",
-            langTitle: "Languages",
-            english: "English",
-            englishLevel: "B2 (Cambridge) aiming for C1",
-            spanish: "Spanish",
-            catalan: "Catalan",
-            native: "Native",
-            skillsTitle: "Soft Skills",
-            skill1: "Assertive Communication",
-            skill2: "Critical Thinking",
-            skill3: "Adaptability",
-            skill4: "Time Management",
-            skill5: "Logical Thinking",
-            skill6: "Commitment",
-            skill7: "Curiosity",
-            aboutTitle: "About Me",
-            aboutText: "I enjoy landscape photography (both day and night), fusion music, anime, and video games."
-        }
-    };
-
-        function changeLanguage(lang) {
-            // Seleccionamos todos los elementos que tengan el atributo data-i18n
-            const elements = document.querySelectorAll('[data-i18n]');
-
-            elements.forEach(element => {
-                // Obtenemos la clave de traducción (ej: "introText1")
-                const key = element.getAttribute('data-i18n');
-
-                // Verificamos si existe traducción para esa clave en el idioma seleccionado
-                if (translations[lang] && translations[lang][key]) {
-                    // Usamos innerHTML por si acaso hay negritas o etiquetas dentro, 
-                    // aunque innerText es más seguro si solo es texto plano.
-                    element.innerText = translations[lang][key];
-                }
-            });
-
-            // Cambiar el idioma declarado en el HTML para accesibilidad
-            document.documentElement.lang = lang;
-        }
-    </script>
+    <script src="projects-data.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>

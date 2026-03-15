@@ -9,6 +9,6 @@ window.PROJECTS = [
       "LenguajeMarcas-2.png",
       "LenguajeMarcas-3.png"
     ],
-    "description": "Esta es la página del módulo de lenguaje de marcas en la que voy subiendo los ejercicios que hago"
+    "description": "Esta es la página del módulo de lenguaje de marcas en la que voy subiendo los ejercicios"
   }
 ];

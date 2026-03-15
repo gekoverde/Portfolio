@@ -179,3 +179,8 @@
         showSection("curriculum");
     }
 })();
+
+// -------- Descargar CV como PDF --------
+function downloadCV() {
+    window.print();
+}

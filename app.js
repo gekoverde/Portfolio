@@ -48,10 +48,10 @@
 
     function buildLinksHTML(repoUrl, liveUrl) {
         const repo = repoUrl
-            ? `<a href="${repoUrl}" target="_blank" rel="noopener noreferrer">🌿 Repositorio</a>`
+            ? `<a href="${repoUrl}" target="_blank" rel="noopener noreferrer"> Repositorio</a>`
             : "";
         const live = liveUrl
-            ? `<a href="${liveUrl}" target="_blank" rel="noopener noreferrer">🚀 Ver proyecto</a>`
+            ? `<a href="${liveUrl}" target="_blank" rel="noopener noreferrer"> Ver proyecto</a>`
             : "";
         const combined = repo + live;
         return combined ? `<div class="project-links">${combined}</div>` : "";

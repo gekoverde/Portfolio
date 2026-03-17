@@ -1,21 +1,18 @@
 (function () {
-    // -------- Tabs VSCode-like --------
-    const tabs = document.querySelectorAll(".tab");
+    // ─── Tabs VSCode-like ─────────────────────────────────────
+    const tabs         = document.querySelectorAll(".tab");
     const fileSections = document.querySelectorAll(".file-section");
-    const treeItems = document.querySelectorAll(".tree-item");
+    const treeItems    = document.querySelectorAll(".tree-item");
 
     function showSection(targetId) {
         fileSections.forEach(section => {
             section.classList.toggle("hidden", section.id !== targetId);
         });
-
         tabs.forEach(tab => {
             tab.classList.toggle("active", tab.dataset.target === targetId);
         });
-
         treeItems.forEach(link => {
-            const isActive = link.getAttribute("href") === `#${targetId}`;
-            link.classList.toggle("active", isActive);
+            link.classList.toggle("active", link.getAttribute("href") === `#${targetId}`);
         });
     }
 
@@ -24,126 +21,81 @@
     });
 
     treeItems.forEach(link => {
-        link.addEventListener("click", (e) => {
+        link.addEventListener("click", e => {
             e.preventDefault();
-            const targetId = link.getAttribute("href").replace("#", "");
-            showSection(targetId);
+            showSection(link.getAttribute("href").replace("#", ""));
         });
     });
 
-    // -------- Portfolio renderer --------
+    // ─── Portfolio renderer ───────────────────────────────────
     const projectsGrid = document.getElementById("projectsGrid");
-    const projects = Array.isArray(window.PROJECTS) ? window.PROJECTS : [];
+    const projects     = Array.isArray(window.PROJECTS) ? window.PROJECTS : [];
+
+    function buildThumbsHTML(images, projectName) {
+        if (images.length <= 1) return "";
+        const items = images.map((imgFile, i) => `
+            <button type="button"
+                    class="project-thumb${i === 0 ? " active" : ""}"
+                    data-src="imagenes/${imgFile}"
+                    aria-label="Ver imagen ${i + 1} de ${projectName}">
+                <img src="imagenes/${imgFile}"
+                     alt="Miniatura ${i + 1}"
+                     loading="lazy"
+                     onerror="this.src='https://placehold.co/128x80/1e1e1e/d4d4d4?text=?'">
+            </button>`).join("");
+        return `<div class="project-thumbs">${items}</div>`;
+    }
+
+    function buildLinksHTML(repoUrl, liveUrl) {
+        const repo = repoUrl
+            ? `<a href="${repoUrl}" target="_blank" rel="noopener noreferrer">🌿 Repositorio</a>`
+            : "";
+        const live = liveUrl
+            ? `<a href="${liveUrl}" target="_blank" rel="noopener noreferrer">🚀 Ver proyecto</a>`
+            : "";
+        const combined = repo + live;
+        return combined ? `<div class="project-links">${combined}</div>` : "";
+    }
 
     function createProjectCard(project) {
-        const card = document.createElement("article");
-        card.className = "project-card";
-
         const images = Array.isArray(project.images) && project.images.length
             ? project.images
-            : ["placeholder.png"]; // opcional, si quieres crear uno real en /imagenes
+            : ["placeholder.png"];
 
-        // Preview section
-        const preview = document.createElement("div");
-        preview.className = "project-preview";
+        const name = project.name || "Proyecto sin nombre";
+        const desc = project.description?.trim() || "Sin descripción (puedes editarla en projects-data.js).";
 
-        const mainWrap = document.createElement("div");
-        mainWrap.className = "project-main-image-wrap";
+        const card = document.createElement("article");
+        card.className = "project-card";
+        card.innerHTML = `
+            <div class="project-preview">
+                <div class="project-main-image-wrap">
+                    <img class="project-main-image"
+                         src="imagenes/${images[0]}"
+                         alt="Vista previa de ${name}"
+                         loading="lazy"
+                         onerror="this.src='https://placehold.co/1280x720/1e1e1e/d4d4d4?text=Imagen+no+encontrada'">
+                </div>
+                ${buildThumbsHTML(images, name)}
+            </div>
+            <div class="project-body">
+                <div class="project-title">
+                    <h3>${name}</h3>
+                    <span class="project-id">${project.id || "sin-id"}</span>
+                </div>
+                <p class="project-desc">${desc}</p>
+                ${buildLinksHTML(project.repoUrl, project.liveUrl)}
+            </div>`;
 
-        const mainImg = document.createElement("img");
-        mainImg.className = "project-main-image";
-        mainImg.src = `imagenes/${images[0]}`;
-        mainImg.alt = `Vista previa del proyecto ${project.name}`;
-        mainImg.loading = "lazy";
-        mainImg.onerror = function () {
-            this.src = "https://placehold.co/1280x720/1e1e1e/d4d4d4?text=Imagen+no+encontrada";
-        };
-
-        mainWrap.appendChild(mainImg);
-        preview.appendChild(mainWrap);
-
-        if (images.length > 1) {
-            const thumbs = document.createElement("div");
-            thumbs.className = "project-thumbs";
-
-            images.forEach((imgFile, index) => {
-                const thumbBtn = document.createElement("button");
-                thumbBtn.type = "button";
-                thumbBtn.className = "project-thumb" + (index === 0 ? " active" : "");
-                thumbBtn.setAttribute("aria-label", `Ver imagen ${index + 1} del proyecto ${project.name}`);
-
-                const thumbImg = document.createElement("img");
-                thumbImg.src = `imagenes/${imgFile}`;
-                thumbImg.alt = `Miniatura ${index + 1}`;
-                thumbImg.loading = "lazy";
-                thumbImg.onerror = function () {
-                    this.src = "https://placehold.co/128x80/1e1e1e/d4d4d4?text=?";
-                };
-
-                thumbBtn.appendChild(thumbImg);
-
-                thumbBtn.addEventListener("click", () => {
-                    mainImg.src = `imagenes/${imgFile}`;
-                    mainImg.alt = `Vista previa del proyecto ${project.name} (${index + 1})`;
-
-                    thumbs.querySelectorAll(".project-thumb").forEach(btn => btn.classList.remove("active"));
-                    thumbBtn.classList.add("active");
-                });
-
-                thumbs.appendChild(thumbBtn);
+        // Attach thumbnail click listeners
+        const mainImg = card.querySelector(".project-main-image");
+        card.querySelectorAll(".project-thumb").forEach(btn => {
+            btn.addEventListener("click", () => {
+                mainImg.src = btn.dataset.src;
+                card.querySelectorAll(".project-thumb").forEach(b => b.classList.remove("active"));
+                btn.classList.add("active");
             });
-
-            preview.appendChild(thumbs);
-        }
-
-        // Body
-        const body = document.createElement("div");
-        body.className = "project-body";
-
-        const titleWrap = document.createElement("div");
-        titleWrap.className = "project-title";
-
-        const title = document.createElement("h3");
-        title.textContent = project.name || "Proyecto sin nombre";
-
-        const idTag = document.createElement("span");
-        idTag.className = "project-id";
-        idTag.textContent = project.id || "sin-id";
-
-        titleWrap.appendChild(title);
-        titleWrap.appendChild(idTag);
-
-        const desc = document.createElement("p");
-        desc.className = "project-desc";
-        desc.textContent = project.description?.trim() || "Sin descripción (puedes editarla en projects-data.js).";
-
-        const links = document.createElement("div");
-        links.className = "project-links";
-
-        if (project.repoUrl) {
-            const repoLink = document.createElement("a");
-            repoLink.href = project.repoUrl;
-            repoLink.target = "_blank";
-            repoLink.rel = "noopener noreferrer";
-            repoLink.textContent = "🌿 Repositorio";
-            links.appendChild(repoLink);
-        }
-
-        if (project.liveUrl) {
-            const liveLink = document.createElement("a");
-            liveLink.href = project.liveUrl;
-            liveLink.target = "_blank";
-            liveLink.rel = "noopener noreferrer";
-            liveLink.textContent = "🚀 Ver proyecto";
-            links.appendChild(liveLink);
-        }
-
-        body.appendChild(titleWrap);
-        body.appendChild(desc);
-        if (links.childElementCount) body.appendChild(links);
-
-        card.appendChild(preview);
-        card.appendChild(body);
+        });
 
         return card;
     }
@@ -152,17 +104,15 @@
         projectsGrid.innerHTML = "";
 
         if (!projects.length) {
-            const empty = document.createElement("div");
-            empty.className = "project-empty";
-            empty.innerHTML = `
-        <p>No hay proyectos todavía.</p>
-        <p>Ejecuta <code>node add-project.js</code> para añadir el primero.</p>
-      `;
-            projectsGrid.appendChild(empty);
+            projectsGrid.innerHTML = `
+                <div class="project-empty">
+                    <p>No hay proyectos todavía.</p>
+                    <p>Ejecuta <code>node add-project.js</code> para añadir el primero.</p>
+                </div>`;
             return;
         }
 
-        // Mostrar últimos primero
+        // Newest first
         [...projects].reverse().forEach(project => {
             projectsGrid.appendChild(createProjectCard(project));
         });
@@ -170,17 +120,13 @@
 
     renderProjects();
 
-    // Mostrar sección según hash si existe
+    // Show section from URL hash
     const hash = window.location.hash.replace("#", "");
-    const validSections = ["curriculum", "portfolio", "contacto"];
-    if (validSections.includes(hash)) {
-        showSection(hash);
-    } else {
-        showSection("curriculum");
-    }
+    const validSections = ["curriculum", "portfolio"];
+    showSection(validSections.includes(hash) ? hash : "curriculum");
 })();
 
-// -------- Descargar CV como PDF --------
+// ─── Descargar CV como PDF ────────────────────────────────
 function downloadCV() {
     window.print();
 }

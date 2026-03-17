@@ -128,5 +128,8 @@
 
 // ─── Descargar CV como PDF ────────────────────────────────
 function downloadCV() {
-    window.print();
+    const link = document.createElement("a");
+    link.href = "imagenes/CV_Noè Santalucía.pdf";
+    link.download = "CV_Noè Santalucía.pdf";
+    link.click();
 }

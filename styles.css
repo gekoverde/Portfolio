@@ -1,16 +1,16 @@
 :root {
     /* Colors */
-    --bg: #1e1e1e;
-    --bg-elev-1: #252526;
-    --bg-elev-2: #2d2d30;
-    --bg-elev-3: #333333;
-    --border: #3c3c3c;
-    --text: #d4d4d4;
-    --text-muted: #9da1a6;
-    --accent: #007acc;
-    --accent-hover: #1a8ed4;
-    --accent-soft: rgba(0, 122, 204, 0.18);
-    --accent-soft-hover: rgba(0, 122, 204, 0.28);
+    --bg: #0a1628;
+    --bg-elev-1: #0f2035;
+    --bg-elev-2: #162844;
+    --bg-elev-3: #1e3454;
+    --border: #2a4a6e;
+    --text: #cdd9e8;
+    --text-muted: #7a9bbf;
+    --accent: #1e7fd4;
+    --accent-hover: #3395e0;
+    --accent-soft: rgba(30, 127, 212, 0.18);
+    --accent-soft-hover: rgba(30, 127, 212, 0.28);
     --green: #89d185;
 
     /* Shadows */
@@ -52,7 +52,7 @@ body {
 }
 
 body {
-    background: #111;
+    background: #060f1c;
     color: var(--text);
     font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     line-height: 1.6;
@@ -67,7 +67,7 @@ body {
 }
 
 .title-bar {
-    background: #181818;
+    background: #0a1628;
     border-bottom: 1px solid var(--border);
     display: grid;
     grid-template-columns: 120px 1fr 60px;
@@ -119,7 +119,7 @@ body {
 }
 
 .activity-bar {
-    background: #181818;
+    background: #0a1628;
     border-right: 1px solid var(--border);
     display: flex;
     flex-direction: column;
@@ -148,7 +148,7 @@ body {
 .activity-btn.active {
     background: var(--accent-soft);
     color: #fff;
-    outline: 1px solid rgba(0, 122, 204, 0.45);
+    outline: 1px solid rgba(30, 127, 212, 0.45);
 }
 
 /* ─── Explorer panel ─────────────────────────────────────── */
@@ -208,7 +208,7 @@ body {
 
 .tree-item.active {
     background: var(--accent-soft);
-    border: 1px solid rgba(0, 122, 204, 0.35);
+    border: 1px solid rgba(30, 127, 212, 0.35);
     color: #fff;
 }
 
@@ -225,7 +225,7 @@ body {
 .quick-help code {
     display: block;
     margin: 0 10px 8px;
-    background: #1a1a1a;
+    background: #0d1e35;
     border: 1px solid var(--border);
     padding: 8px;
     border-radius: var(--radius-sm);
@@ -437,7 +437,7 @@ body {
 }
 
 .chip.tech:hover {
-    border-color: rgba(0, 122, 204, 0.5);
+    border-color: rgba(30, 127, 212, 0.5);
     background: var(--accent-soft);
     transform: translateY(-1px);
 }
@@ -512,7 +512,7 @@ body {
 
 .mini-card:hover {
     background: rgba(255, 255, 255, 0.03);
-    border-color: rgba(0, 122, 204, 0.5);
+    border-color: rgba(30, 127, 212, 0.5);
     border-left-color: var(--accent-hover);
 }
 
@@ -553,7 +553,7 @@ body {
 /* ─── Intro card ─────────────────────────────────────────── */
 .intro-card code {
     color: #ce9178;
-    background: #1a1a1a;
+    background: #0d1e35;
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     padding: 2px 6px;
@@ -581,7 +581,7 @@ body {
 .download-pdf-btn:hover {
     background: var(--accent-hover);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(0, 122, 204, 0.35);
+    box-shadow: 0 4px 12px rgba(30, 127, 212, 0.35);
 }
 
 .download-pdf-btn:active {
@@ -614,7 +614,7 @@ body {
 
 .project-preview {
     border-bottom: 1px solid var(--border);
-    background: #121212;
+    background: #080f1a;
     padding: 10px;
 }
 
@@ -623,7 +623,7 @@ body {
     aspect-ratio: 16/9;
     border-radius: 8px;
     overflow: hidden;
-    background: #0f0f0f;
+    background: #060d18;
     border: 1px solid var(--border);
 }
 
@@ -654,7 +654,7 @@ body {
     overflow: hidden;
     border: 1px solid var(--border);
     cursor: pointer;
-    background: #111;
+    background: #060f1c;
     flex: 0 0 auto;
     transition: var(--transition);
 }

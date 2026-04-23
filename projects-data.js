@@ -10,5 +10,15 @@ window.PROJECTS = [
       "LenguajeMarcas-3.png"
     ],
     "description": "Esta es la página del módulo de lenguaje de marcas en la que voy subiendo los ejercicios"
+  },
+  {
+    "id": "teelab-api-1776926001880",
+    "name": "TEELAB_API",
+    "repoUrl": "https://github.com/noesantalucia7e9-crypto/TEELAB_API",
+    "liveUrl": "",
+    "images": [
+      "teelabapi.png.png"
+    ],
+    "description": "API rest simple que tuve que hacer para la clase de programación y servicios"
   }
 ];

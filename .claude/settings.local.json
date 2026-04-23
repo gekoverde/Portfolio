@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(find /c/Users/noesa/OneDrive/Escritorio/CurriculumVitaeNoe -type f | grep -E \"\\\\.\\(md|txt\\)$\")",
-      "Bash(git log:*)"
-    ]
-  }
-}

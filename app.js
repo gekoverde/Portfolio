@@ -30,6 +30,18 @@
     // ─── Portfolio renderer ───────────────────────────────────
     const projectsGrid = document.getElementById("projectsGrid");
     const projects     = Array.isArray(window.PROJECTS) ? window.PROJECTS : [];
+    const imageDialog  = document.querySelector(".project-image-dialog");
+    const dialogImage  = imageDialog.querySelector(".project-image-dialog-content");
+
+    imageDialog.querySelector(".project-image-dialog-close").addEventListener("click", () => {
+        imageDialog.close();
+    });
+
+    imageDialog.addEventListener("click", event => {
+        if (event.target === imageDialog) {
+            imageDialog.close();
+        }
+    });
 
     function buildThumbsHTML(images, projectName) {
         if (images.length <= 1) return "";
@@ -70,11 +82,13 @@
         card.innerHTML = `
             <div class="project-preview">
                 <div class="project-main-image-wrap">
-                    <img class="project-main-image"
-                         src="imagenes/${images[0]}"
-                         alt="Vista previa de ${name}"
-                         loading="lazy"
-                         onerror="this.src='https://placehold.co/1280x720/1e1e1e/d4d4d4?text=Imagen+no+encontrada'">
+                    <button class="project-image-button" type="button" aria-label="Ampliar imagen de ${name}">
+                        <img class="project-main-image"
+                             src="imagenes/${images[0]}"
+                             alt="Vista previa de ${name}"
+                             loading="lazy"
+                             onerror="this.src='https://placehold.co/1280x720/1e1e1e/d4d4d4?text=Imagen+no+encontrada'">
+                    </button>
                 </div>
                 ${buildThumbsHTML(images, name)}
             </div>
@@ -89,6 +103,12 @@
 
         // Attach thumbnail click listeners
         const mainImg = card.querySelector(".project-main-image");
+        card.querySelector(".project-image-button").addEventListener("click", () => {
+            dialogImage.src = mainImg.currentSrc || mainImg.src;
+            dialogImage.alt = mainImg.alt;
+            imageDialog.showModal();
+        });
+
         card.querySelectorAll(".project-thumb").forEach(btn => {
             btn.addEventListener("click", () => {
                 mainImg.src = btn.dataset.src;

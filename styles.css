@@ -627,6 +627,20 @@ body {
     border: 1px solid var(--border);
 }
 
+.project-image-button {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: zoom-in;
+}
+
+.project-image-button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: -2px;
+}
+
 .project-main-image {
     width: 100%;
     height: 100%;
@@ -637,6 +651,53 @@ body {
 
 .project-main-image-wrap:hover .project-main-image {
     transform: scale(1.02);
+}
+
+.project-image-dialog {
+    position: fixed;
+    inset: 0;
+    margin: auto;
+    width: fit-content;
+    max-width: 96vw;
+    max-height: 90vh;
+    box-sizing: border-box;
+    padding: 48px 16px 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #080f1a;
+    color: #fff;
+}
+
+.project-image-dialog::backdrop {
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.project-image-dialog-content {
+    display: block;
+    max-width: 100%;
+    max-height: calc(90vh - 80px);
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.project-image-dialog-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    background: #111b2b;
+    color: #fff;
+    font-size: 24px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.project-image-dialog-close:hover {
+    border-color: var(--accent);
+    background: var(--accent);
 }
 
 .project-thumbs {
